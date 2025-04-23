@@ -8,12 +8,16 @@ const Header: FC = () => {
     <section className={scss.Header}>
       <div className="container">
         <div className={scss.content}>
-          <div>logo</div>
-          {links.map((item, index) => (
-            <Link key={index} to={item.link}>
-              {item.title}
-            </Link>
-          ))}
+          <div className={scss.logo}>
+            <h1>LOGO</h1>
+          </div>
+          <div className={scss.nav}>
+            {links.map((item, index) => (
+              <Link key={index} to={item.link}>
+                <p>{item.title}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

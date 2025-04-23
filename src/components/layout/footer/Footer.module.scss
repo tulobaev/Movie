@@ -1,0 +1,36 @@
+.Footer {
+  padding-block: 30px;
+  padding-block: 20px;
+  background: #270303f5;
+  color: white;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  h1 {
+    span {
+      font-size: clamp(0.875rem, 0.792rem + 0.42vw, 1.125rem);
+      font-weight: 500;
+    }
+  }
+  .ol {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    ol {
+      font-weight: 600;
+      li {
+        font-weight: 500;
+      }
+    }
+  }
+}
+.mini_footer {
+    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 5px;
+  background: #9b424276;
+}
