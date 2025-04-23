@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface IType {
+interface IInitialStateType {
   id: number;
   backdrop_path: string;
   title: string;
@@ -13,22 +13,18 @@ interface IType {
 }
 
 interface IData {
-  popular: IType[];
-  topRated: IType[];
+  data: IInitialStateType[];
 }
 
-const initialState: { data: IData } = {
-  data: {
-    popular: [],
-    topRated: [],
-  },
+const initialState: IData = {
+  data: [],
 };
 
 const dataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    setData: (state, action: PayloadAction<IData>) => {
+    setData: (state, action: PayloadAction<IInitialStateType[]>) => {
       state.data = action.payload;
     },
   },
