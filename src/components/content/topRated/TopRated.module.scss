@@ -1,0 +1,148 @@
+.TopRated {
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h3 {
+      line-height: 1.1;
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: #fff;
+    }
+
+    .scrollContainer {
+      position: relative;
+      width: 100%;
+    }
+
+    .scrollWrapper {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .cardsContainer {
+      display: flex;
+      gap: 20px;
+    }
+
+    .scrollButton {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      opacity: 0.8;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.9);
+        opacity: 1;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .scrollButtonLeft {
+      left: 5px;
+    }
+
+    .scrollButtonRight {
+      right: 5px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-block: 30px;
+
+    .content {
+      gap: 25px;
+
+      .title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .cardsContainer {
+        gap: 15px;
+      }
+
+      .scrollButton {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+
+      .scrollButtonLeft {
+        left: 3px;
+      }
+
+      .scrollButtonRight {
+        right: 3px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding-block: 20px;
+
+    .content {
+      gap: 20px;
+
+      .title {
+        gap: 10px;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      .cardsContainer {
+        gap: 10px;
+      }
+
+      .scrollButton {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+      }
+
+      .scrollButtonLeft {
+        left: 2px;
+      }
+
+      .scrollButtonRight {
+        right: 2px;
+      }
+    }
+  }
+}
