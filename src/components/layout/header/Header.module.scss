@@ -34,7 +34,7 @@
     padding-right: 15px;
 
     h1 {
-      font-size: clamp(1.563rem, 1.458rem + 0.52vw, 1.875rem);
+      font-size: clamp(1rem, 0.556rem + 2.22vw, 2.5rem);
     }
 
     .icon_movie {
@@ -64,48 +64,6 @@
     .active {
       border-bottom: 1px solid rgb(228, 63, 90);
       transition: border-bottom 300ms ease-in-out;
-    }
-
-    .dropdown {
-      position: relative;
-      .title {
-        cursor: pointer;
-      }
-
-      .dropdown_menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 10px 0;
-        min-width: 130px;
-        border-radius: 5px;
-        z-index: 1000;
-
-        .dropdown_item {
-          display: block;
-          padding: 10px 20px;
-          font-size: 1rem;
-          color: #fff;
-          text-decoration: none;
-          transition: background-color 200ms ease;
-
-          &:hover {
-            color: #e43f5a;
-          }
-        }
-
-        .active {
-          border-bottom: none;
-          color: #e43f5a;
-        }
-      }
-
-      &:hover .dropdown_menu {
-        display: block; /* Показываем при наведении */
-        animation: slideDown 200ms ease-in-out; /* Анимация появления */
-      }
     }
   }
 
@@ -148,25 +106,43 @@
       display: block;
       font-size: 1.25rem;
       text-align: center;
+      color: #fff;
     }
+  }
+}
 
-    .mobile_dropdown {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+.burger_menu {
+  display: none;
+  font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
+  cursor: pointer;
+  color: #fff;
+  transition: transform 300ms ease;
 
-      .dropdown_item {
-        font-size: 1rem;
-        color: #fff;
-        padding-left: 20px; /* Отступ для подменю */
-        text-decoration: none;
-      }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
 
-      .active {
-        color: #e43f5a;
-        border-bottom: none;
-      }
+@media (max-width: 768px) {
+  .Header {
+    padding-block: 15px;
+
+    .logo {
+      max-width: 130px;
     }
+  }
+  .burger_menu {
+    display: block;
+  }
+  .nav {
+    gap: 20px;
+  }
+  .title {
+    display: none;
+  }
+
+  .search {
+    display: none;
   }
 }
 
@@ -186,7 +162,7 @@
   .search {
     padding: 3px 0px;
     input {
-      width: 180px;
+      width: 250px;
     }
   }
 }
@@ -197,10 +173,10 @@
   }
   .search {
     height: clamp(1.563rem, 1.354rem + 1.04vw, 2.188rem);
-    width: 220px;
+    width: 150px;
     gap: 3px;
     input {
-      width: 180px;
+      width: 100px;
     }
   }
 }
@@ -212,9 +188,6 @@
     .nav {
       .title {
         display: none;
-      }
-      .dropdown_menu {
-        display: none; /* Скрываем выпадающее меню на мобильных */
       }
     }
 
