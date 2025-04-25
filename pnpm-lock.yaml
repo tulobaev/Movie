@@ -2819,7 +2819,6 @@ snapshots:
 
   react-is@19.1.0: {}
 
-  react-redux@9.2.0(@types/react@19.1.2)(react@19.1.0)(redux@5.0.1):
     dependencies:
       '@types/use-sync-external-store': 0.0.6
       react: 19.1.0

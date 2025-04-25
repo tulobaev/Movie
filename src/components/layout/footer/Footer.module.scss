@@ -1,36 +1,53 @@
 .Footer {
   padding-block: 30px;
   padding-block: 20px;
-  background: #270303f5;
+  background: #13131b;
   color: white;
 }
 .content {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 25px;
   h1 {
-    span {
-      font-size: clamp(0.875rem, 0.792rem + 0.42vw, 1.125rem);
-      font-weight: 500;
-    }
+    font-size: clamp(1.063rem, 0.896rem + 0.83vw, 1.563rem);
   }
-  .ol {
+  p {
+    font-size: clamp(0.75rem, 0.625rem + 0.63vw, 1.125rem);
+  }
+  .icons {
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    ol {
-      font-weight: 600;
-      li {
-        font-weight: 500;
-      }
-    }
+    gap: 15px;
+    font-size: clamp(1.063rem, 0.896rem + 0.83vw, 1.563rem);
   }
 }
 .mini_footer {
-    margin-top: 20px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding-block: 5px;
-  background: #9b424276;
+  .line {
+    letter-spacing: 5px;
+  }
+  p {
+    font-size: clamp(0.5rem, 0.354rem + 0.73vw, 0.938rem);
+  }
+}
+@media (max-width: 900px) {
+  .content {
+    gap: 18px;
+  }
+  .mini_footer {
+    .line {
+      letter-spacing: 4px;
+    }
+  }
+}
+@media (max-width: 900px) {
+  .mini_footer {
+    .line {
+      letter-spacing: 2px;
+    }
+  }
 }
