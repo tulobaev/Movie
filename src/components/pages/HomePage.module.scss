@@ -59,10 +59,10 @@
 
   @media (max-width: 768px) {
     .content {
-      flex-direction: column;
+      flex-direction: column-reverse;
+      justify-content: center;
       align-items: center;
       text-align: center;
-      margin-bottom: 60px;
     }
 
     .text {

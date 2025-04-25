@@ -17,10 +17,10 @@ export const links = [
   {
     link: "/show",
     element: <TVshowPage />,
-    title: "TV Show",  
+    title: "TV Shows",
   },
   {
-      link: "/search/",
+    link: "/search/:query",
     element: <SearchPage />,
-  }
+  },
 ];
