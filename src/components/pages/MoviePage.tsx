@@ -67,7 +67,12 @@ const MoviePage: FC = () => {
             </div>
           </div>
 
-          <div className={scss.box}>
+          <div
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className={scss.box}
+          >
             {currentItems.map((item) => (
               <Card
                 key={item.id}

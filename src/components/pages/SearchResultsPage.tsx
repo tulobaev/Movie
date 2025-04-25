@@ -53,7 +53,12 @@ const SearchResultsPage: FC = () => {
           {product.length === 0 ? (
             <p className={scss.noResults}>Ничего не найдено</p>
           ) : (
-            <div className={scss.boxCard}>
+            <div
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+              className={scss.boxCard}
+            >
               {currentItems.map((item: IMovie) => (
                 <Card
                   key={item.id}

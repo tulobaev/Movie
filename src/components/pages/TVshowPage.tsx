@@ -67,7 +67,7 @@ const TVshowPage: FC = () => {
             </div>
           </div>
 
-          <div className={scss.box}>
+          <div data-aos="fade-up" data-aos-duration="3000" className={scss.box}>
             {currentItems.map((item) => (
               <Card
                 key={item.id}
