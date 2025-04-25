@@ -1,0 +1,30 @@
+.Header {
+  background-image: url(../../../image/a-minecrafft-movie.jpg);
+  -webkit-box-shadow: -100px -98px 100px 87px rgba(39, 3, 3, 0.79) inset;
+  -moz-box-shadow: -100px -98px 100px 87px rgba(39, 3, 3, 0.79) inset;
+  box-shadow: -100px -98px 100px 87px rgba(39, 3, 3, 0.79) inset;
+  text-decoration: none;
+  padding-block: 25px;
+  
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h1{
+    color: white;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    p {
+      display: flex;
+      gap: 30px;
+    }
+    a {
+      color: white;
+    }
+  }
+}
