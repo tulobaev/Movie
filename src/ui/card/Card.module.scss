@@ -1,0 +1,163 @@
+.card {
+  width: 270px;
+  height: 400px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    z-index: 2;
+  }
+}
+
+.cardInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.728);
+  position: relative;
+  background: #0a0a0a;
+}
+
+.cardOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.6),
+    transparent
+  );
+  color: white;
+  padding: 20px 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+}
+
+.card:hover .cardOverlay {
+  transform: translateY(0);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* Адаптивные стили */
+@media (max-width: 1024px) {
+  .card {
+    width: 240px;
+    height: 360px;
+  }
+
+  .cardOverlay {
+    padding: 15px 12px;
+
+    h4 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 220px;
+    height: 330px;
+  }
+
+  .cardOverlay {
+    padding: 12px 10px;
+
+    h4 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  .cardInner {
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.728);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 160px;
+    height: 240px;
+  }
+
+  .cardOverlay {
+    padding: 10px 8px;
+    gap: 6px;
+
+    h4 {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .cardInner {
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.728);
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    width: 140px;
+    height: 200px;
+  }
+
+  .cardOverlay {
+    padding: 8px 6px;
+    gap: 4px;
+
+    h4 {
+      font-size: 13px;
+    }
+
+    p {
+      font-size: 11px;
+    }
+  }
+}
