@@ -1,0 +1,78 @@
+.SearchResultsPage {
+  padding-block: 6.25rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(2.5rem, 4vw, 4.375rem);
+
+    h1 {
+      color: #fff;
+      font-size: clamp(1.25rem, 1.065rem + 0.93vw, 1.875rem);
+      letter-spacing: 0.0625rem;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+    }
+
+    .boxCard {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: clamp(1.875rem, 3vw, 3.125rem);
+      width: 100%;
+    }
+  }
+
+  .pagination {
+    margin-top: clamp(3.125rem, 5vw, 6.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+  }
+
+  @media (max-width: 64em) {
+    padding-block: 4rem;
+    .content {
+      .boxCard {
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 48em) {
+    padding-block: 3rem;
+
+    .content {
+      gap: 2rem;
+
+      h1 {
+        font-size: clamp(1.125rem, 1rem + 0.8vw, 1.5rem);
+      }
+
+      .boxCard {
+        gap: 1.5rem;
+      }
+    }
+
+    .pagination {
+      margin-top: 2rem;
+    }
+  }
+
+  @media (max-width: 36em) {
+    padding-block: 2rem;
+
+    .content {
+      gap: 1.5rem;
+
+      .boxCard {
+        gap: 1rem;
+      }
+    }
+  }
+}
