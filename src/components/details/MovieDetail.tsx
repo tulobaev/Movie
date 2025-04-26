@@ -41,6 +41,7 @@ const MovieDetail = () => {
   const [movie, setMovie] = useState<MovieDetailType>();
   const [cast, setCast] = useState<CastType[]>([]);
   const [trailerKey, setTrailerKey] = useState<string>();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftButton, setShowLeftButton] = useState(false);
   const [showRightButton, setShowRightButton] = useState(true);
@@ -67,14 +68,13 @@ const MovieDetail = () => {
       }
     } catch (error) {
       console.error("Ошибка при загрузке данных:", error);
-    } finally {
-      setLoading(false);
     }
   }
 
   useEffect(() => {
     fetchMovieDetails();
   }, [id]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!scrollRef.current) return;
@@ -109,8 +109,7 @@ const MovieDetail = () => {
       const cardWidth = 290;
       scrollRef.current.scrollBy({ left: cardWidth * 2, behavior: "smooth" });
     }
-  // Modal state for trailer
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -120,7 +119,6 @@ const MovieDetail = () => {
     setIsModalOpen(false);
   };
 
-  if (loading) return <div className="movie-detail">Загрузка...</div>;
   if (!movie) return <div className="movie-detail">Фильм не найден.</div>;
 
   return (
@@ -179,6 +177,7 @@ const MovieDetail = () => {
           />
         )}
       </div>
+
       {isModalOpen && trailerKey && (
         <Trailer
           trailerKey={trailerKey}
