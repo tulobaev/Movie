@@ -2,6 +2,7 @@ import HomePage from "../components/pages/HomePage";
 import SearchPage from "../components/pages/SearchResultsPage";
 import MoviePage from "../components/pages/MoviePage";
 import TVshowPage from "../components/pages/TVshowPage";
+import MovieDetail from "../components/details/MovieDetail";
 
 export const links = [
   {
@@ -13,6 +14,11 @@ export const links = [
     link: "/movie",
     element: <MoviePage />,
     title: "Movie",
+  },
+  {
+    link: "/details/:id",
+    element: <MovieDetail />,
+    title: "",
   },
   {
     link: "/show",
