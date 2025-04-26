@@ -6,6 +6,8 @@ import { setData } from "../../store/slice/DataSlice";
 import Button from "../../ui/button/Button";
 import { useNavigate } from "react-router-dom";
 import Content from "../content/Content";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const API_KEY = import.meta.env.VITE_KEY;
 const API = import.meta.env.VITE_API;
@@ -51,6 +53,10 @@ const HomePage: FC = () => {
     return () => clearInterval(interval);
   }, [backgrounds]);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const lastFive = data.slice(-5).reverse();
   const currentItem = lastFive[currentIndex] || {};
 
@@ -66,7 +72,13 @@ const HomePage: FC = () => {
         }}
       >
         <div className="container">
-          <div className={scss.content}>
+          <div
+            data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="1000"
+            className={scss.content}
+          >
             <div className={scss.text}>
               <h1>{currentItem.title || currentItem.name}</h1>
               <p>

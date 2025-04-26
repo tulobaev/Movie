@@ -7,7 +7,12 @@ const Content: FC = () => {
   return (
     <section className={scss.Content}>
       <div className="container">
-        <div className={scss.content}>
+        <div
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className={scss.content}
+        >
           <Popular />
           <TopRated />
         </div>

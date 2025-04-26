@@ -14,12 +14,10 @@ interface IInitialStateType {
 
 interface IData {
   data: IInitialStateType[];
-  searchProduct: IInitialStateType[];
 }
 
 const initialState: IData = {
   data: [],
-  searchProduct: [],
 };
 
 const dataSlice = createSlice({
@@ -29,11 +27,8 @@ const dataSlice = createSlice({
     setData: (state, action: PayloadAction<IInitialStateType[]>) => {
       state.data = action.payload;
     },
-    setSearchProduct: (state, action: PayloadAction<IInitialStateType[]>) => {
-      state.searchProduct = action.payload;
-    },
   },
 });
 
-export const { setData, setSearchProduct } = dataSlice.actions;
+export const { setData } = dataSlice.actions;
 export default dataSlice.reducer;
