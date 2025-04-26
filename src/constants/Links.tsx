@@ -28,8 +28,6 @@ export const links = [
     link: "*",
     element: <NotFoundPage />,
   },
-    title: "TV Shows",
-  },
   {
     link: "/search/:query",
     element: <SearchPage />,
