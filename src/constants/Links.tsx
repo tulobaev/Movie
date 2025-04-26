@@ -2,8 +2,8 @@ import HomePage from "../components/pages/HomePage";
 import SearchPage from "../components/pages/SearchResultsPage";
 import MoviePage from "../components/pages/MoviePage";
 import TVshowPage from "../components/pages/TVshowPage";
+import NotFoundPage from "../components/pages/NotFoundPage";
 import MovieDetail from "../components/details/MovieDetail";
-
 export const links = [
   {
     link: "/",
@@ -23,6 +23,16 @@ export const links = [
   {
     link: "/show",
     element: <TVshowPage />,
+    title: "TV Show",
+  },
+  {
+    link: "/search/",
+    element: <SearchPage />,
+  },
+  {
+    link: "*",
+    element: <NotFoundPage />,
+  },
     title: "TV Shows",
   },
   {

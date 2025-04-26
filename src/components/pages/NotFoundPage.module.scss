@@ -1,0 +1,41 @@
+#not {
+  background-image: url(../../image/404-error-page-not-found-tiny-people-vector-51588159.jpg);
+  background-size: cover;
+}
+.not_found_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #f8f9fa70;
+  padding: 2rem;
+
+  h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    color: #142739;
+  }
+
+  p {
+    font-size: 60px;
+    margin-bottom: 2rem;
+    color: rgba(4, 23, 50, 0.968);
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
