@@ -44,7 +44,7 @@
 }
 .movie-detail__trailer {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 12px;
@@ -55,4 +55,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-} /*# sourceMappingURL=movie-detail.css.map */
+}
+.buttonTr {
+  margin-top: 30px;
+}
