@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./movie-detail.css";
+import Button from "../../ui/button/Button";
+import Trailer from "./trailer/Trailer";
 
 interface MovieDetailType {
   title: string;
   overview: string;
   release_date: string;
   vote_average: string;
+  poster_path: string;
 }
 
 interface TrailerType {
@@ -25,10 +28,11 @@ const API = import.meta.env.VITE_API;
 
 const MovieDetail = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState<MovieDetailType>();
-  const [trailerKey, setTrailerKey] = useState<string>();
+  const [movie, setMovie] = useState<MovieDetailType | null>(null);
+  const [trailerKey, setTrailerKey] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Fetch movie and trailer details
   async function fetchMovieDetails() {
     try {
       const movieUrl = `${API}movie/${id}?api_key=${API_KEY}&language=ru-RU`;
@@ -57,6 +61,17 @@ const MovieDetail = () => {
     fetchMovieDetails();
   }, [id]);
 
+  // Modal state for trailer
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   if (loading) return <div className="movie-detail">Загрузка...</div>;
   if (!movie) return <div className="movie-detail">Фильм не найден.</div>;
 
@@ -77,24 +92,19 @@ const MovieDetail = () => {
           <p className="movie-detail__rating">
             Рейтинг: {movie.vote_average} ⭐
           </p>
-          {trailerKey && (
-            <div className="movie-detail__trailer-wrapper">
-              <h2>Трейлер</h2>
-              <div className="movie-detail__trailer">
-                <iframe
-                  width="100%"
-                  height="500"
-                  src={`https://www.youtube.com/embed/${trailerKey}`}
-                  title="Трейлер фильма"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-          )}
+          <div className="buttonTr">
+            <Button title="Trailer" onClick={openModal} />
+          </div>
         </div>
       </div>
+
+      {isModalOpen && trailerKey && (
+        <Trailer
+          trailerKey={trailerKey}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
