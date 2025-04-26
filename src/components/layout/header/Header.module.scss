@@ -1,6 +1,6 @@
 .Header {
   background: #00000014;
-  color: black;
+  color: white;
   padding-block: 20px;
 }
 .content {
@@ -35,7 +35,7 @@
       display: block;
     }
     a {
-      color: black;
+      color: white;
       font-size: clamp(0.813rem, 0.667rem + 0.73vw, 1.25rem);
     }
   }
@@ -54,6 +54,7 @@
       background: none;
       border: none;
       outline: none;
+      color: white;
       font-size: clamp(0.75rem, 0.583rem + 0.83vw, 1.25rem);
     }
   }
