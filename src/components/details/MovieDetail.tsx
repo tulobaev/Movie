@@ -4,6 +4,8 @@ import axios from "axios";
 import "./movie-detail.css";
 import Card from "../../ui/card/Card";
 import { BsArrowLeftCircle, BsArrowRightCircle } from "react-icons/bs";
+import Button from "../../ui/button/Button";
+import Trailer from "./trailer/Trailer";
 
 interface MovieDetailType {
   title: string;
@@ -39,11 +41,11 @@ const MovieDetail = () => {
   const [movie, setMovie] = useState<MovieDetailType>();
   const [cast, setCast] = useState<CastType[]>([]);
   const [trailerKey, setTrailerKey] = useState<string>();
-  const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftButton, setShowLeftButton] = useState(false);
   const [showRightButton, setShowRightButton] = useState(true);
 
+  // Fetch movie and trailer details
   async function fetchMovieDetails() {
     try {
       const movieUrl = `${API}movie/${id}?api_key=${API_KEY}&language=ru-RU`;
@@ -73,7 +75,6 @@ const MovieDetail = () => {
   useEffect(() => {
     fetchMovieDetails();
   }, [id]);
-
   useEffect(() => {
     const handleScroll = () => {
       if (!scrollRef.current) return;
@@ -108,6 +109,15 @@ const MovieDetail = () => {
       const cardWidth = 290;
       scrollRef.current.scrollBy({ left: cardWidth * 2, behavior: "smooth" });
     }
+  // Modal state for trailer
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   if (loading) return <div className="movie-detail">Загрузка...</div>;
@@ -130,22 +140,9 @@ const MovieDetail = () => {
           <p className="movie-detail__rating">
             Рейтинг: {movie.vote_average} ⭐
           </p>
-          {trailerKey && (
-            <div className="movie-detail__trailer-wrapper">
-              <h2>Трейлер</h2>
-              <div className="movie-detail__trailer">
-                <iframe
-                  width="100%"
-                  height="500"
-                  src={`https://www.youtube.com/embed/${trailerKey}`}
-                  title="Трейлер фильма"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            </div>
-          )}
+          <div className="buttonTr">
+            <Button title="Trailer" onClick={openModal} />
+          </div>
         </div>
       </div>
 
@@ -182,6 +179,13 @@ const MovieDetail = () => {
           />
         )}
       </div>
+      {isModalOpen && trailerKey && (
+        <Trailer
+          trailerKey={trailerKey}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+        />
+      )}
     </div>
   );
 };
