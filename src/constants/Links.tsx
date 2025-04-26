@@ -16,11 +16,6 @@ export const links = [
     title: "Movie",
   },
   {
-    link: "/details/:id",
-    element: <MovieDetail />,
-    title: "",
-  },
-  {
     link: "/show",
     element: <TVshowPage />,
     title: "TV Shows",
@@ -28,5 +23,9 @@ export const links = [
   {
     link: "/search/:query",
     element: <SearchPage />,
+  },
+  {
+    link: "/details/:id",
+    element: <MovieDetail />,
   },
 ];

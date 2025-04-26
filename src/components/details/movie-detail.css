@@ -55,4 +55,46 @@
   left: 0;
   width: 100%;
   height: 100%;
-} /*# sourceMappingURL=movie-detail.css.map */
+}
+/* scroll */
+
+.movie-detail__cast-title {
+  padding-top: 100px;
+  color: #fff;
+  font-size: 40px;
+}
+
+.scrollWrapper {
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.movie-detail__scroll-container {
+  position: relative;
+  margin-top: 30px;
+}
+
+.cast {
+  display: flex;
+  gap: 40px;
+  padding: 16px 0;
+  min-height: 300px;
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: #444;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scrollButtonLeft {
+  left: -30px;
+}
+
+.scrollButtonRight {
+  right: -30px;
+}
